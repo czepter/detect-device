@@ -1,0 +1,15 @@
+{
+    "name": "czepter/detect-device",
+    "description": "fork of the incredible work of Kevin Warren (detectdevice.com). Easy to use lib for device detection.",
+    "type": "library",
+    "require": {
+        "mobiledetect/mobiledetectlib": "^2.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian",
+            "email": "christian@czepter.de"
+        }
+    ]
+}
