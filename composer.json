@@ -6,10 +6,14 @@
         "mobiledetect/mobiledetectlib": "^2.8"
     },
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Christian",
-            "email": "christian@czepter.de"
+    "authors": [{
+        "name": "Christian",
+        "email": "christian@czepter.de"
+    }],
+    "autoload": {
+        "classmap": ["Detect.php"],
+        "psr-0": {
+            "DeviceDetection": "src/"
         }
-    ]
+    },
 }
