@@ -21,9 +21,11 @@ class Detect {
 	private static $ipInfoHostname = null;
 	private static $ipInfoOrg = null;
 	private static $ipInfoCountry = null;
-	#private static $ipInfoLatitude = null;
-	#private static $ipInfoLongitude = null;
-	#private static $ipInfoAddress = null;
+	private static $ipInfoLatitude = null;
+	private static $ipInfoLongitude = null;
+	private static $ipInfoCity = null;
+	private static $ipInfoRegion = null;
+	private static $ipInfoAddress = null;
 	private static $detect = null;
 
 	public static function init() {
@@ -264,6 +266,8 @@ class Detect {
                 self::$ipInfoOrg = self::$ipInfo->org;
             }
 			self::$ipInfoCountry = self::$ipInfo->country;
+			self::$ipInfoCity = self::$ipInfo->city;
+			self::$ipInfoRegion = self::$ipInfo->region;
 			#list(self::$ipInfoLatitude, self::$ipInfoLongitude) = explode(',', self::$ipInfo->loc);
 			/*try {
 				$googleLocation = json_decode(file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng=' . self::$ipInfoLatitude . ',' . self::$ipInfoLongitude . '&sensor=false'));
@@ -317,6 +321,14 @@ class Detect {
 	public static function ipCountry() {
 		if (is_null(self::$ipInfo) && !self::$ipInfoError) { self::getIpInfo(); }
 		return self::$ipInfoCountry;
+	}
+	public static function ipCity() {
+		if (is_null(self::$ipInfo) && !self::$ipInfoError) { self::getIpInfo(); }
+		return self::$ipInfoCity;
+	}
+	public static function ipRegion() {
+		if (is_null(self::$ipInfo) && !self::$ipInfoError) { self::getIpInfo(); }
+		return self::$ipInfoRegion;
 	}
 
     private static $phoneModels = [
