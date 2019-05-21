@@ -257,7 +257,9 @@ class Detect {
 
 	private static function getIpInfo() {
 		try {
-			self::$ipInfo = json_decode(file_get_contents('http://ipinfo.io' . self::$ipUrl . '/json'));
+			$url = 'ipinfo.io' . self::$ipUrl . '/json';
+			$url = 'http://' . str_replace('//', '/', $url);
+			self::$ipInfo = json_decode(file_get_contents($url));
 			self::$ipAddress = self::$ipInfo->ip;
             if (isset(self::$ipInfo->hostname)) {
                 self::$ipInfoHostname = self::$ipInfo->hostname;
