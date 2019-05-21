@@ -265,9 +265,15 @@ class Detect {
             if (isset(self::$ipInfo->org)) {
                 self::$ipInfoOrg = self::$ipInfo->org;
             }
-			self::$ipInfoCountry = self::$ipInfo->country;
-			self::$ipInfoCity = self::$ipInfo->city;
-			self::$ipInfoRegion = self::$ipInfo->region;
+			if (isset(self::$ipInfo->ipInfoCountry)) {
+                self::$ipInfoCountry = self::$ipInfo->ipInfoCountry;
+            }
+			if (isset(self::$ipInfo->ipInfoCity)) {
+                self::$ipInfoCity = self::$ipInfo->ipInfoCity;
+            }
+			if (isset(self::$ipInfo->ipInfoRegion)) {
+                self::$ipInfoRegion = self::$ipInfo->ipInfoRegion;
+            }
 			#list(self::$ipInfoLatitude, self::$ipInfoLongitude) = explode(',', self::$ipInfo->loc);
 			/*try {
 				$googleLocation = json_decode(file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng=' . self::$ipInfoLatitude . ',' . self::$ipInfoLongitude . '&sensor=false'));
